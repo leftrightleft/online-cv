@@ -1,25 +1,19 @@
----
-#Add "layout: compress" here to compress the html code
----
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
-{% include head.html %}
-
-<body>
-  <div class="wrapper">
-    {% include sidebar.html %}
-
-    <div class="main-wrapper">
-        {{ content }}
+<html>
+  {% include head.html %}
+  <body class="page">
+    {% include background.html %}
+    <div class="container" id="ctner">
+      {% include header.html %}
+      <div class="div_article" id="div_atcl">       
+        <article id="main_atcl" itemscope itemtype="http://schema.org/BlogPosting">
+          {{content}}
+          {% include list_of_articles.html %}
+        </article>
+          {% if page.footer == true %}
+          {% include footer.html %}
+          {% endif %}
+      </div>
     </div>
-  </div>
-
-  {% include footer.html %}
-
-{% include scripts.html %}
-</body>
-
+  </body>
 </html>
-
